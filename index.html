@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NextGen IT Academy — Training & Tutoring</title>
+    <meta
+      name="description"
+      content="NextGen IT Academy — Global online & offline training in Microsoft Office, Web Development, plus Grade 1–10 tutoring. Trainers across Pakistan, UAE, Canada, USA."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/aa78aa747c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <style>
+      :root {
+        --bg: #0b1220;
+        --card: #121a2b;
+        --muted: #8aa0bd;
+        --text: #e9f0ff;
+        --primary: #56a6ff;
+        --accent: #19c37d;
+        --warning: #f59e0b;
+        --radius: 18px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        background: linear-gradient(
+          180deg,
+          #0b1220 0%,
+          #0b1220 40%,
+          #0e182b 100%
+        );
+        color: var(--text);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        width: min(1200px, 92%);
+        margin-inline: auto;
+      }
+
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(11, 18, 32, 0.6);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .nav-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.9rem 0;
+      }
+      .brand {
+        display: flex;
+        gap: 0.7rem;
+        align-items: center;
+      }
+      .brand .logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #1d4ed8, #06b6d4);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+      }
+      .brand .logo span {
+        background: linear-gradient(180deg, #fff, #cde3ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .brand h1 {
+        font-size: 1.05rem;
+        margin: 0;
+      }
+      .brand small {
+        display: block;
+        color: var(--muted);
+        font-weight: 400;
+        letter-spacing: 0.3px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+      }
+      .nav-links a {
+        color: #d8e6ff;
+        font-weight: 500;
+        opacity: 0.85;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.05rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      .btn.primary {
+        background: linear-gradient(135deg, #1e90ff, #06b6d4);
+        border: none;
+        color: #fff;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+      .mobile-toggle {
+        display: none;
+      }
+
+      @media (max-width: 880px) {
+        .nav-links {
+          display: none;
+        }
+        .mobile-toggle {
+          display: inline-flex;
+        }
+      }
+
+      /* HERO */
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 2rem;
+        padding: 1.5rem 0 2rem;
+      }
+      .hero h2 {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        line-height: 1.15;
+        margin: 0 0 0.6rem;
+      }
+      .hero p {
+        color: var(--muted);
+        margin: 0.2rem 0 1.2rem;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 1rem 0;
+      }
+      .tag {
+        font-size: 0.85rem;
+        color: #cfe2ff;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 0.35rem 0.6rem;
+        border-radius: 999px;
+      }
+      .hero-card {
+        background: linear-gradient(180deg, #0f1930, #0c1427);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+        padding: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+      .hero-img {
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .trust {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        margin-top: 1.2rem;
+        color: #9fb3cf;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 960px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* STATS */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .stat {
+        background: linear-gradient(180deg, #0f1930, #0a1223);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        text-align: center;
+      }
+      .stat h3 {
+        margin: 0.2rem 0;
+        font-size: 1.8rem;
+      }
+      .stat p {
+        margin: 0;
+        color: var(--muted);
+      }
+      @media (max-width: 720px) {
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 3.2rem 0;
+      }
+      .section-title {
+        display: flex;
+        align-items: end;
+        gap: 1rem;
+        margin-bottom: 1.6rem;
+      }
+      .section-title h3 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      .section-title span {
+        color: var(--muted);
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+      .grid-3 > .card:nth-child(4) {
+  grid-column: 1 / 4;  /* Center the first box of the 2nd row in the 3rd column */
+}
+      @media (max-width: 980px) {
+        .grid-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: linear-gradient(180deg, #0f1930, #0a1223);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        min-height: 100%;
+      }
+      .card .icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: rgba(86, 166, 255, 0.15);
+        border: 1px solid rgba(86, 166, 255, 0.25);
+        margin-bottom: 0.6rem;
+      }
+      .card h4 {
+        margin: 0.4rem 0;
+      }
+      .card p {
+        color: var(--muted);
+      }
+      .badge {
+        display: inline-flex;
+        gap: 0.4rem;
+        align-items: center;
+        padding: 0.35rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(25, 195, 125, 0.15);
+        border: 1px solid rgba(25, 195, 125, 0.25);
+        color: #b8ffde;
+        font-size: 0.8rem;
+      }
+
+      /* GLOBAL */
+      .flags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .flag {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.4rem 0.6rem;
+        border-radius: 999px;
+      }
+
+      /* INSTRUCTORS */
+      .instructors .teacher {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+      .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.12);
+      }
+      .pill {
+        display: inline-flex;
+        gap: 0.4rem;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 0.3rem 0.55rem;
+        border-radius: 999px;
+        color: #cfe2ff;
+        font-size: 0.8rem;
+      }
+
+      /* PRICING */
+      .pricing .price {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+      .pricing ul {
+        padding-left: 1.1rem;
+        color: var(--muted);
+      }
+
+      /* CTA */
+      .cta {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1rem;
+        align-items: center;
+        background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+        border-radius: var(--radius);
+        padding: 2rem;
+      }
+      .cta h3 {
+        margin: 0;
+      }
+      .cta p {
+        margin: 0.4rem 0 1rem;
+      }
+      @media (max-width: 860px) {
+        .cta {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* CONTACT */
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+      form input,
+      form select,
+      form textarea {
+        background: #0b1426;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #e8f1ff;
+        padding: 0.8rem;
+        border-radius: 10px;
+      }
+      form textarea {
+        grid-column: 1/-1;
+        min-height: 120px;
+      }
+      form .actions {
+        grid-column: 1/-1;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 2rem 0;
+        color: #9fb3cf;
+      }
+      .foot {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr 0.7fr;
+        gap: 1rem;
+      }
+      .foot a {
+        color: #cfe2ff;
+        opacity: 0.85;
+      }
+      .copyright {
+        margin-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1rem;
+        text-align: center;
+        color: #7f95b3;
+      }
+      @media (max-width: 860px) {
+        .foot {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="container nav-wrap">
+        <a class="brand" href="#top">
+          <div class="logo"><span>NG</span></div>
+          <div>
+            <h1>NextGen IT Academy</h1>
+            <small>Training • Tutoring • Global</small>
+          </div>
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="#training">Training</a>
+          <a href="#tutoring">Tutoring</a>
+          <a href="#instructors">Instructors</a>
+          <a href="#contact" class="btn">Contact</a>
+          <a href="#demo" class="btn primary">Free Demo Class</a>
+        </div>
+        <button class="btn mobile-toggle" id="mobileBtn">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero container" id="top">
+      <div>
+        <span class="badge"
+          ><i class="fa fa-globe"></i> Pakistan • UAE • Canada • USA</span
+        >
+        <h2>
+          Learn Today. Lead Tomorrow.<br />Global Tutoring & IT Training
+        </h2>
+        <p>
+          We provide outcome-focused IT training (Microsoft Office, Web
+          Development) and school tutoring (Grade 1–10). Online & offline
+          options, flexible schedules, and certificates on completion.
+        </p>
+        <div class="tags">
+          <span class="tag">Grade 1–10 Tutoring</span>
+          <span class="tag">Microsoft Office (Beginner → Advanced)</span>
+          <span class="tag">Web Development (FrontEnd & BackEnd)</span>
+          <span class="tag">Ethical Hacking</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#contact" class="btn primary"
+            ><i class="fa fa-comment"></i> Talk to Us</a
+          >
+          <a href="#training" class="btn"
+            ><i class="fa fa-book"></i> Explore Programs</a
+          >
+        </div>
+        <div class="trust">
+          <span><i class="fa fa-shield"></i> Registered Academy</span>
+          <span><i class="fa fa-certificate"></i> Certificates Provided</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-img">
+          <img
+            src="./src/Picsart_25-08-19_17-34-13-109.jpg"
+            alt="Students learning online"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- STATS -->
+    <div class="container stats" id="stats">
+      <div class="stat">
+        <h3><span class="count" data-target="1200">0</span>+</h3>
+        <p>Students Trained</p>
+      </div>
+      <div class="stat">
+        <h3><span class="count" data-target="45">0</span>+</h3>
+        <p>Qualified Instructors</p>
+      </div>
+      <div class="stat">
+        <h3><span class="count" data-target="4">0</span></h3>
+        <p>Countries Served</p>
+      </div>
+      <div class="stat">
+        <h3><span class="count" data-target="98">0</span>%</h3>
+        <p>Parent/Student Satisfaction</p>
+      </div>
+    </div>
+
+<!-- TUTORING -->
+<section class="container" id="tutoring">
+  <div class="section-title">
+    <h3>School Tutoring (Grade 1–10)</h3>
+    <span>Home & Online</span>
+  </div>
+  
+  <div class="grid-3">
+    <article class="card">
+      <h4><i class="fa fa-user-graduate"></i> Math & Science</h4>
+      <p>
+        Experienced tutors for conceptual learning and exam success. Weekly
+        progress reports for parents.
+      </p>
+    </article>
+
+    <article class="card">
+      <h4><i class="fa fa-language"></i> English & Urdu</h4>
+      <p>
+        Grammar, comprehension, and writing with simple, engaging lessons.
+      </p>
+    </article>
+
+    <article class="card">
+      <h4><i class="fa fa-computer"></i> Computer & Islamiat</h4>
+      <p>
+        Curriculum-aligned content with practical assignments and quizzes.
+      </p>
+    </article>
+
+    <!-- NEW Other Subjects Box -->
+    <article class="card">
+      <h4><i class="fa fa-book-open"></i> Other Subjects</h4>
+      <p>
+        Comprehensive tutoring across multiple subjects, tailored to each
+        student’s academic needs. Flexible lessons designed for concept
+        clarity, confidence building, and exam preparation.
+      </p>
+    </article>
+  </div>
+
+  <div class="flags" style="margin-top: 1rem">
+    <div class="flag">
+      <img src="https://flagcdn.com/w20/pk.png" width="20" alt="PK" /> Pakistan
+    </div>
+    <div class="flag">
+      <img src="https://flagcdn.com/w20/ae.png" width="20" alt="UAE" /> UAE
+    </div>
+    <div class="flag">
+      <img src="https://flagcdn.com/w20/ca.png" width="20" alt="CA" /> Canada
+    </div>
+    <div class="flag">
+      <img src="https://flagcdn.com/w20/us.png" width="20" alt="US" /> USA
+    </div>
+  </div>
+</section>
+
+    
+    <!-- TRAINING -->
+    <section class="container" id="training">
+      <div class="section-title">
+        <h3>IT Training Programs</h3>
+        <span>Career-ready, hands-on</span>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-table"></i></div>
+          <h4>Microsoft Office — Beginner to Advanced</h4>
+          <p>
+            Master Word, Excel (formulas, pivot tables), PowerPoint, and Access.
+            Real projects, interview prep, and certificate.
+          </p>
+          <p class="pill">
+            <i class="fa fa-clock"></i> 8 weeks • Online/Offline
+          </p>
+        </article>
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-code"></i></div>
+          <h4>Web Development — MERN Stack</h4>
+          <p>
+            Build responsive websites from scratch. Includes forms, animations,
+            and deployment to Netlify.
+          </p>
+          <p class="pill">
+            <i class="fa fa-clock"></i> 12 weeks • Capstone Project
+          </p>
+        </article>
+        <article class="card">
+  <div class="icon"><i class="fa-solid fa-user-secret"></i></div>
+  <h4>Ethical Hacking</h4>
+  <p>
+    Learn how hackers think and how to defend systems against attacks.
+    Covers penetration testing, Wi-Fi security, Kali Linux, and real-world case studies.
+  </p>
+  <p class="pill"><i class="fa fa-clock"></i> 4 weeks • Advanced</p>
+</article>
+
+      </div>
+    </section>
+
+   
+
+    <!-- INSTRUCTORS -->
+    <section class="container instructors" id="instructors">
+      <div class="section-title">
+        <h3>Our Instructors</h3>
+        <span>Verified & experienced</span>
+      </div>
+      <div class="grid-3">
+        <article class="card teacher">
+          <div class="avatar">
+            <img
+              src="./src/09c4037bee2448010ac68f9089127875.jpg"
+              alt="Instructor"
+            />
+          </div>
+          <div>
+            <h4>Ayesha Khan</h4>
+            <p class="pill">
+              <i class="fa fa-location-dot"></i> Karachi • Tutoring
+            </p>
+            <p class="muted">6+ yrs • Received Best Teacher Award</p>
+          </div>
+        </article>
+        <article class="card teacher">
+         <div class="avatar">
+            <img
+              src="./src/sarah.png"
+              alt="Instructor"
+            />
+          </div>
+          <div>
+            <h4>Sarah Akhtar</h4>
+            <p class="pill">
+              <i class="fa fa-location-dot"></i> Karachi • Microsoft Office
+            </p>
+            <p class="muted">5+ yrs • 800+ students</p>
+          </div>
+        </article>
+        <article class="card teacher">
+          <div class="avatar">
+            <img class="ahmed-pic"
+              src="./src/Ahmed Raza.png"
+              alt="Instructor"
+            />
+          </div>
+          <div>
+            <h4>Ahmed Raza</h4>
+            <p class="pill">
+              <i class="fa fa-location-dot"></i> Dubai • Web Dev
+            </p>
+            <p class="muted">7+ yrs • 40 projects</p>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+
+<!-- PRICING / PLANS -->
+<section class="container pricing" id="plans">
+  <div class="section-title">
+    <h3>Flexible Plans</h3>
+    <span>Local & International</span>
+  </div>
+
+  <div class="grid-3">
+    <!-- IT Training Plan -->
+    <article class="card">
+      <h4>💻 IT Training</h4>
+      <div class="price" id="training-price">
+        <span class="old-price">PKR 4,000</span> PKR 1,500 / mo
+      </div>
+      <div class="discount-badge">38% OFF</div>
+      <ul>
+        <li>Online or In-Person</li>
+        <li>Weekly Projects</li>
+        <li>Certificate Included</li>
+      </ul>
+      <a href="#contact" class="btn primary" id="training-btn">Enroll</a>
+    </article>
+
+    <!-- Tutoring Plan -->
+    <article class="card">
+      <h4>📘 Tutoring (Grade 1–10)</h4>
+      <div class="price">
+        <span class="new-price">Custom</span>
+      </div>
+      <ul>
+        <li>Home & Online</li>
+        <li>Parent Reports</li>
+        <li>Trial Class Available</li>
+      </ul>
+      <a href="#contact" class="btn primary">Request Tutor</a>
+    </article>
+
+    <!-- Ethical Hacking Plan -->
+    <article class="card">
+      <h4>🕵️ Ethical Hacking</h4>
+      <div class="price" id="hacking-price">
+        <span class="old-price">PKR 5,000</span> PKR 2,500
+      </div>
+      <div class="discount-badge">🔥 Limited Offer 50% OFF</div>
+      <ul>
+        <li>Penetration Testing</li>
+        <li>Wi-Fi Security & Kali Linux</li>
+        <li>Real-World Case Studies</li>
+      </ul>
+      <a href="#contact" class="btn primary" id="hacking-btn">Enroll</a>
+    </article>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .card {
+    position: relative;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+  }
+
+  .old-price {
+    text-decoration: line-through;
+    color: #e63946;
+    font-size: 18px;
+    margin-right: 8px;
+  }
+
+  .new-price, .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00;
+  }
+
+  .discount-badge {
+    background: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .btn.primary {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background: #0077ff;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .btn.primary:hover {
+    background: #005ad4;
+  }
+
+  .pill {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+</style>
+
+<script>
+  // Detect location for PKR vs USD
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(data => {
+      let isPK = data.country === "PK";
+
+      // IT Training
+      if (isPK) {
+        document.getElementById("training-price").innerHTML = 
+          '<span class="old-price">PKR 7,000</span> PKR 5,000 / mo';
+        document.getElementById("training-btn").innerText = "Enroll";
+      } else {
+        document.getElementById("training-price").innerHTML = 
+          '<span class="old-price">US$ 50</span> US$ 20 / mo';
+        document.getElementById("training-btn").innerText = "Enroll";
+      }
+
+      // Ethical Hacking
+      if (isPK) {
+        document.getElementById("hacking-price").innerHTML = 
+          '<span class="old-price">PKR 7,000</span> PKR 4,999';
+        document.getElementById("hacking-btn").innerText = "Enroll";
+      } else {
+        document.getElementById("hacking-price").innerHTML = 
+          '<span class="old-price">US$ 50</span> US$ 35';
+        document.getElementById("hacking-btn").innerText = "Enroll";
+      }
+    })
+    .catch(err => {
+      console.error("Location fetch error:", err);
+    });
+</script>
+
+
+
+    <!-- CTA STRIP -->
+    <section class="container">
+      <div class="cta" id="demo">
+        <div>
+          <h3>Book a Free Demo Class</h3>
+          <p>
+            Tell us your goals. We’ll match you with the perfect instructor and
+            share a quick plan to get you started.
+          </p>
+          <a href="#contact" class="btn"
+            ><i class="fa fa-phone"></i> Contact Team</a
+          >
+        </div>
+        <div>
+          <img
+            src="./src/download.jpeg"
+            alt="Demo class"
+            style="
+              border-radius: 14px;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+            "
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="container" id="contact">
+      <div class="section-title">
+        <h3>Contact Us</h3>
+        <span>We respond within 24 hours</span>
+      </div>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <select name="service" required>
+          <option value="" disabled selected>I'm interested in…</option>
+          <option>Tutoring (Grade 1–10)</option>
+          <option>Microsoft Office Training</option>
+          <option>Web Development (FrontEnd)</option>
+          <option>Web Development (BackEnd)</option>
+          <option>MERN Stack Development</option>
+          <option>Ethical Hacking Course</option>
+        </select>
+        <input type="tel" name="phone" placeholder="WhatsApp / Phone" />
+        <textarea
+          name="message"
+          placeholder="Tell us about your goals"
+        ></textarea>
+        <div class="actions">
+          <button class="btn primary" type="submit">
+            <i class="fa fa-paper-plane"></i> Send
+          </button>
+          <a
+            class="btn"
+            href="https://wa.me/923138239294"
+            target="_blank"
+            rel="noopener"
+            >WhatsApp Us</a
+          >
+        </div>
+      </form>
+    </section>
+
+    <footer class="container">
+      <div class="foot">
+        <div>
+          <div class="brand">
+            <div class="logo"><span>NG</span></div>
+            <div>
+              <h1>NextGen IT Academy</h1>
+              <small>Pakistan • UAE • Canada • USA</small>
+            </div>
+          </div>
+          <p style="color: #9fb3cf">
+            IT training and tutoring services for school students and
+            professionals. Learn the skills that help you stand out.
+          </p>
+        </div>
+        <div>
+          <h4>Programs</h4>
+          <p><a href="#training">Microsoft Office</a></p>
+          <p><a href="#training">Web Development</a></p>
+          <p><a href="#training">Ethical Hacking</a></p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa fa-envelope"></i> nishazahid1077@gmail.com</p>
+          <p><i class="fa fa-phone"></i> +92 313 8239294</p>
+          <a href="https://wa.me/923138239294" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp available</a>
+          <div style="display: flex; gap: 0.6rem; margin-top: 0.4rem">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        © <span id="year"></span> NextGen IT Academy. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Mobile nav toggle
+      const mobileBtn = document.getElementById("mobileBtn");
+      const navLinks = document.getElementById("navLinks");
+      mobileBtn?.addEventListener("click", () => {
+        const shown = getComputedStyle(navLinks).display !== "none";
+        navLinks.style.display = shown ? "none" : "flex";
+      });
+
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Count-up stats
+      const counters = document.querySelectorAll(".count");
+      const countUp = (el) => {
+        const target = +el.dataset.target;
+        let c = 0;
+        const inc = Math.max(1, Math.ceil(target / 120));
+        const tick = () => {
+          c += inc;
+          if (c > target) c = target;
+          el.textContent = c;
+          if (c < target) requestAnimationFrame(tick);
+        };
+        tick();
+      };
+
+      // GSAP Animations
+      document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".brand, .nav-links a, .mobile-toggle", {
+          opacity: 0,
+          y: -12,
+          duration: 0.7,
+        });
+        gsap.from(".hero h2", { opacity: 0, y: 20, duration: 0.8, delay: 0.2 });
+        gsap.from(".hero-card", {
+          opacity: 0,
+          scale: 0.96,
+          duration: 0.8,
+          delay: 0.25,
+        });
+
+        // Stats animate on enter
+        ScrollTrigger.create({
+          trigger: "#stats",
+          start: "top 80%",
+          once: true,
+          onEnter: () => counters.forEach(countUp),
+        });
+
+        // Card reveal on scroll
+        gsap.utils.toArray(".card").forEach((card, i) => {
+          gsap.from(card, {
+            opacity: 0,
+            y: 24,
+            duration: 0.6,
+            delay: i * 0.02,
+            scrollTrigger: { trigger: card, start: "top 85%" },
+          });
+        });
+
+        // CTA parallax
+        gsap.from(".cta img", {
+          scale: 1.05,
+          y: 12,
+          opacity: 0,
+          duration: 1,
+          scrollTrigger: { trigger: ".cta", start: "top 80%" },
+        });
+      });
+    </script>
+  </body>
+</html>
