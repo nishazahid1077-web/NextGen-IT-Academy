@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="./src/NextGen IT Training Logo Design.ico" />
     <script src="https://kit.fontawesome.com/aa78aa747c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
@@ -866,7 +867,7 @@
         <h3>Contact Us</h3>
         <span>We respond within 24 hours</span>
       </div>
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" method="POST" netlify data-netlify="true">
         <input type="hidden" name="form-name" value="contact" />
         <input type="text" name="name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email" required />
@@ -888,13 +889,6 @@
           <button class="btn primary" type="submit">
             <i class="fa fa-paper-plane"></i> Send
           </button>
-          <a
-            class="btn"
-            href="https://wa.me/923138239294"
-            target="_blank"
-            rel="noopener"
-            >WhatsApp Us</a
-          >
         </div>
       </form>
     </section>
@@ -937,6 +931,33 @@
         © <span id="year"></span> NextGen IT Academy. All rights reserved.
       </div>
     </footer>
+    <script>
+async function logVisitor() {
+  // Step 1: Get IP & Location
+  let res = await fetch("https://ipapi.co/json/");
+  let data = await res.json();
+
+  // Step 2: Get Browser
+  let browser = navigator.userAgent;
+
+  // Step 3: Send to Google Sheet
+  await fetch("https://script.google.com/macros/s/AKfycbw0u5otnEtjJFoEsvDO0te7m9BZHPjcermQERThzILPSoRNkYjdcsjmFG-v4XHWPpex/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      ip: data.ip,
+      country: data.country_name,
+      city: data.city,
+      browser: browser
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+}
+
+logVisitor();
+</script>
+
 
     <script>
       // Mobile nav toggle
